@@ -1,6 +1,6 @@
 APP_NAME=restoranku
 APP_ENV=local
-APP_KEY=base64:Q1XKfj8nw4y+EdGb0U7korgAzPXf5AOC+/vqvL3LE4g=
+APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost
 
