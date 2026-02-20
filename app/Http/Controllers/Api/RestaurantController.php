@@ -84,23 +84,23 @@ class RestaurantController extends Controller
         if (!auth()->user()->isAdmin()) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
-
+        
         $restaurant = Restaurant::find($id);
-
+        
         if (!$restaurant) {
             return response()->json(['message' => 'Restaurant not found'], 404);
         }
-
+        
         $validated = $request->validate([
             'name' => 'sometimes|string|max:255',
             'address' => 'nullable|string',
             'phone_number' => 'nullable|string',
             'note' => 'nullable|string',
             'open_times' => 'nullable|array',
-            'open_times.*.day_start' => 'required|string',
-            'open_times.*.day_end' => 'required|string',
-            'open_times.*.time_start' => 'required',
-            'open_times.*.time_end' => 'required',
+            'open_times.*.day_start' => 'required_with:open_times',
+            'open_times.*.day_end' => 'required_with:open_times',
+            'open_times.*.time_start' => 'required_with:open_times|string',
+            'open_times.*.time_end' => 'required_with:open_times|string',
         ]);
 
         $validated['updated_by'] = auth()->id();

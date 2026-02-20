@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\database\seeders\RoleSeeder;
-use App\database\seeders\UserSeeder;
-use App\database\seeders\RestaurantSeeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\RestaurantSeeder;
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
